@@ -1,15 +1,15 @@
 package com.gfarkas.tasks.dto;
 
-import java.util.List;
+import java.util.Set;
 
 public class Task {
     private String taskName;
-    private List<String> completedTasksNames;
+    private Set<String> completedTasksNames;
 
     public Task() {
     }
 
-    public Task(String taskName, List<String> completedTasksNames) {
+    public Task(String taskName, Set<String> completedTasksNames) {
         this.taskName = taskName;
         this.completedTasksNames = completedTasksNames;
     }
@@ -22,13 +22,13 @@ public class Task {
         this.taskName = taskName;
     }
 
-    public List<String> getCompletedTasksNames() {
+    public Set<String> getCompletedTasksNames() {
         completedTasksNames.removeIf(name -> name.equalsIgnoreCase(this.taskName));
 
         return completedTasksNames;
     }
 
-    public void setCompletedTasksNames(List<String> completedTasksNames) {
+    public void setCompletedTasksNames(Set<String> completedTasksNames) {
         completedTasksNames.removeIf(name -> name.equalsIgnoreCase(this.taskName));
         this.completedTasksNames = completedTasksNames;
     }
