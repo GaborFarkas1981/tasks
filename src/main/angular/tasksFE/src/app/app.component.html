@@ -1,0 +1,19 @@
+<h1>tasks</h1>
+<p-listbox
+  (onChange)="calculateSelected($event)"
+  *ngIf="tasks"
+  [checkbox]="true"
+  [multiple]="true"
+  [options]="tasks"
+  optionLabel="name">
+  <ng-template let-task pTemplate="item">
+    [{{task.type}}] {{task.name}}<span *ngIf="task.deps.length !== 0">&nbsp;=> (</span>
+    <div *ngFor="let item of task.deps; let i=index; let isLast=last">
+      {{ item }}<span *ngIf="!isLast">,&nbsp;</span>
+    </div>
+    <span *ngIf="task.deps.length !== 0">)</span>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    [BUG]: {{bug}} [IMPR]: {{impr}} [IMPL]: {{impl}} [INFRA]: {{infra}}
+  </ng-template>
+</p-listbox>
