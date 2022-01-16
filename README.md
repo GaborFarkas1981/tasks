@@ -45,3 +45,24 @@ Task 3
 
 What chain of events happens when an http client sends a GET request to an URL like https://www.example.com/index.html?ts=1537437557&m=foo#chapter1 (i.e. the URL is entered into the address bar of a browser and the user presses enter).
 Assume the target server is reachable and returns an HTML page. Please give an overview of operations done by the client, the server and the network in between and go into details as you deem relevant.
+
+#Neo4J
+
+docker run \
+--publish=7474:7474 --publish=7687:7687 \
+--volume=$HOME/neo4j/data:/data \
+neo4j
+
+user: neo4j
+pass: admin
+url: localhost:7474/browser
+
+run both commands to erase db:
+
+match (a) -[r] -> () delete a, r
+
+above command will delete all nodes with relationships. then run ,
+
+match (a) delete a
+
+and it will delete nodes that have no relationships.
