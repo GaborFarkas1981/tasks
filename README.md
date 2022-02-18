@@ -53,6 +53,8 @@ docker run \
 --volume=$HOME/neo4j/data:/data \
 neo4j
 
+defaultUser: neo4j
+defaultPass: neo4j
 user: neo4j
 pass: admin
 url: localhost:7474/browser
