@@ -7,18 +7,21 @@ import com.gfarkas.tasks.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.InputStream;
 import java.util.*;
-
-import static com.gfarkas.tasks.TasksDemoApplication.tasks;
 
 @Service
 public class TasksApiServiceImpl implements TasksApiService {
+
+    private final Map<String, Map<String, Set<String>>> tasks = new HashMap<>();
 
     @Autowired
     TaskRepository repository;
 
     @Override
     public List<TaskDto> listAllTasks() {
+        InputStream is = getClass().getClassLoader().getResourceAsStream("init.yml");
+
         return sort(tasks);
     }
 
