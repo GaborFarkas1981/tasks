@@ -24,4 +24,4 @@
       command: mvn -f {{ workspace }}/pom.xml clean package
 
     - name: Start Tasks application
-      shell: "{{ workspace }}/src/start.sh"
+      shell: "{{ workspace }}/src/start.sh </dev/null >/dev/null 2>&1 &"
