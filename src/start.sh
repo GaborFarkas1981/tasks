@@ -1,0 +1,1 @@
+java -jar /home/ansible/projects/tasks/target/tasks-demo-0.0.1-SNAPSHOT.jar

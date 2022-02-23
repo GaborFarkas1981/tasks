@@ -1,0 +1,27 @@
+- hosts: all
+  become: yes
+  gather_facts: False
+  vars:
+    - repo_url: https://github.com/GaborFarkas1981/tasks.git
+    - workspace: /home/ansible/projects/tasks
+  tasks:
+    - name: Installing {{ packages }} on {{ hostname }}
+      apt:
+        name:
+          - git
+          - nmap
+          - maven
+          - default-jre
+        state: present
+        autoclean: yes
+  
+    - name: Git clone Tasks application
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ workspace }}"
+  
+    - name: Build Tasks application
+      command: mvn -f {{ workspace }}/pom.xml clean package
+
+    - name: Start Tasks application
+      command: "{{ workspace }}/src/start.sh"
