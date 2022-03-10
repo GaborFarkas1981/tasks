@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskElementModel} from "./shared/model/taskElementModel";
 import {TasksService} from "./shared/service/tasks.service";
+import {KeycloakService} from "keycloak-angular";
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit{
   impl: number = 0;
   infra: number = 0;
 
-  constructor(private service: TasksService) {
+  constructor(private service: TasksService, private keycloakService: KeycloakService) {
     // this.tasks = JSON.parse(`[{"type":"BUG","name":"fix bug1","deps":[]},{"type":"BUG","name":"fix bug2","deps":[]},{"type":"IMPR","name":"refactor W","deps":[]},{"type":"IMPL","name":"implement feature X","deps":["fix bug2","refactor W"]},{"type":"INFRA","name":"release","deps":["fix bug1","fix bug2","implement feature X"]},{"type":"INFRA","name":"deploy","deps":["release"]}]`);
 
   }
@@ -54,5 +55,9 @@ export class AppComponent implements OnInit{
     } else if (task.type.toLocaleLowerCase() === 'infra') {
       this.infra++;
     }
+  }
+
+  logout() {
+    this.keycloakService.logout();
   }
 }
