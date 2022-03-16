@@ -40,6 +40,12 @@ once you are done please zip the folder (node_modules can be removed) and upload
 
 const tasks = JSON.parse(`[{"type":"BUG","name":"fix bug1","deps":[]},{"type":"BUG","name":"fix bug2","deps":[]},{"type":"IMPR","name":"refactor W","deps":[]},{"type":"IMPL","name":"implement feature X","deps":["fix bug2","refactor W"]},{"type":"INFRA","name":"release","deps":["fix bug1","fix bug2","implement feature X"]},{"type":"INFRA","name":"deploy","deps":["release"]}]`)
 
+---
+Task 3
+
+What chain of events happens when an http client sends a GET request to an URL like https://www.example.com/index.html?ts=1537437557&m=foo#chapter1 (i.e. the URL is entered into the address bar of a browser and the user presses enter).
+Assume the target server is reachable and returns an HTML page. Please give an overview of operations done by the client, the server and the network in between and go into details as you deem relevant.
+
 #Neo4J
 
 docker run \
@@ -62,8 +68,3 @@ above command will delete all nodes with relationships. then run ,
 match (a) delete a
 
 and it will delete nodes that have no relationships.
-
-#KeyCloak
-docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin jboss/keycloak:10.0.0
-login as admin: http://localhost:8080/auth
-

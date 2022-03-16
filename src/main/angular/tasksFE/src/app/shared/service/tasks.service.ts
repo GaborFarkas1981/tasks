@@ -10,6 +10,6 @@ export class TasksService {
   }
 
   listAllTasks():Observable<any> {
-    return this.http.get('http://localhost:8081/api/tasks')
+    return this.http.get('http://localhost:8080/api/tasks')
   }
 }

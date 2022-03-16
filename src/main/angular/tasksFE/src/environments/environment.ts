@@ -3,13 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  serverUrl: '/api',
-  keycloak: {
-    // Url of the Identity Provider
-    issuer: 'http://localhost:8080/auth/', // Realm
-    realm: 'tasks', clientId: 'demo-angular'
-  }
+  production: false
 };
 
 /*
